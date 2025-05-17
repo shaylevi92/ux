@@ -1,41 +1,30 @@
-import { Inter, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import PageWrapper from "@/components/PageWrapper";
-import ThemeProvider from "@/components/ThemeProvider";
-import Container from "@/components/layout/Container";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
+const inter = Inter({ subsets: ['latin'] })
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-});
+export const metadata: Metadata = {
+  title: 'Shay Levi - UX Designer',
+  description: 'UX Designer crafting digital experiences with a user-centered approach',
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="min-h-screen flex flex-col bg-background text-primary antialiased">
-        <ThemeProvider>
-          <Navbar />
-          <main className="flex-grow pt-24">
-            <Container>
-              <PageWrapper>
-                {children}
-              </PageWrapper>
-            </Container>
-          </main>
-          <Footer />
-        </ThemeProvider>
+    <html lang="en">
+      <body className={`${inter.className} bg-white dark:bg-gray-900`}>
+        <Navbar />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
-  );
+  )
 }

@@ -1,144 +1,159 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { AnimatedSection, fadeInUp } from '@/components/AnimatedSection';
+
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 }
+};
+
+const fadeInTransition = {
+  duration: 0.6
+};
 
 const skills = [
-  { category: 'Design', items: ['User Interface Design', 'User Experience Design', 'Interaction Design', 'Wireframing', 'Prototyping'] },
-  { category: 'Research', items: ['User Research', 'Usability Testing', 'A/B Testing', 'Analytics', 'Heuristic Evaluation'] },
-  { category: 'Tools', items: ['Figma', 'Adobe XD', 'Sketch', 'InVision', 'Principle'] },
-  { category: 'Additional', items: ['Design Systems', 'Agile Methodology', 'Project Management', 'Team Leadership', 'Client Communication'] }
+  { name: 'UX Design', level: 'Expert' },
+  { name: 'UI Design', level: 'Expert' },
+  { name: 'User Research', level: 'Advanced' },
+  { name: 'Prototyping', level: 'Expert' },
+  { name: 'Design Systems', level: 'Advanced' },
+  { name: 'Figma', level: 'Expert' },
+  { name: 'Adobe XD', level: 'Advanced' },
+  { name: 'Sketch', level: 'Advanced' }
 ];
 
 const experiences = [
   {
-    company: 'Design Studio X',
-    role: 'Senior UX Designer',
-    period: '2021 - Present',
-    description: 'Leading UX design initiatives for enterprise clients, managing design teams, and establishing design systems.'
+    title: 'UX Designer',
+    company: 'Freelance',
+    period: '2022 - Present',
+    description: 'Working with various clients to create user-centered digital experiences, focusing on web and mobile applications.'
   },
   {
-    company: 'Tech Innovators',
-    role: 'UX/UI Designer',
-    period: '2019 - 2021',
-    description: 'Designed user-centered solutions for mobile and web applications, conducted user research and usability testing.'
-  },
-  {
-    company: 'Creative Agency',
-    role: 'UI Designer',
-    period: '2017 - 2019',
-    description: 'Created visually appealing and functional interfaces for various digital products and platforms.'
+    title: 'UX/UI Designer',
+    company: 'Tech Startup',
+    period: '2020 - 2022',
+    description: 'Led the design of multiple products, conducted user research, and implemented design systems.'
   }
 ];
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero Section */}
-        <AnimatedSection
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
-            About Me
-          </h1>
-          <p className="mt-4 text-xl text-gray-500 max-w-3xl mx-auto">
-            Passionate UX designer with 5+ years of experience creating intuitive and impactful digital experiences
-          </p>
-        </AnimatedSection>
-
-        {/* Profile Section */}
-        <AnimatedSection
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-white rounded-lg shadow-lg overflow-hidden mb-16"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-8">
-            <div className="relative h-96 lg:h-auto">
+    <div className="min-h-screen pt-32">
+      {/* Hero Section */}
+      <section className="px-4 sm:px-6 lg:px-8 mb-16">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeIn}
+            transition={fadeInTransition}
+            className="grid md:grid-cols-2 gap-12 items-center"
+          >
+            <div className="relative h-64 md:h-96 rounded-xl overflow-hidden">
               <Image
-                src="/profile.jpg"
-                alt="Profile"
+                src="/about/profile.jpg"
+                alt="Shay Levi"
                 fill
-                className="object-cover rounded-lg"
+                className="object-cover"
               />
             </div>
-            <div className="flex flex-col justify-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Hello, I'm [Your Name]
-              </h2>
-              <p className="text-gray-600 mb-6">
-                I'm a UX designer focused on creating digital products that are both beautiful and functional. With over 5 years of experience in the field, I've had the opportunity to work with various clients across different industries, helping them achieve their business goals through user-centered design.
+            <div>
+              <h1 className="text-4xl font-bold mb-6">About Me</h1>
+              <p className="text-gray-600 dark:text-gray-300 text-lg mb-6">
+                Hey there! I'm Shay, a UX/UI enthusiast on a mission to sprinkle a little magic into the digital world. 
+                Based in sunny Tel Aviv, I'm all about blending creativity with practicality to craft memorable user experiences.
               </p>
-              <p className="text-gray-600">
-                My approach combines strategic thinking with creative problem-solving, ensuring that every design decision is backed by user research and business objectives. I'm passionate about creating experiences that not only look great but also make a real difference in people's lives.
+              <p className="text-gray-600 dark:text-gray-300 text-lg">
+                Last year, I proudly graduated with honors from HIT College, where I pursued my bachelor's degree in learning technologies.
+                I discovered the fascinating intersection between learning methodologies and user experience design.
               </p>
             </div>
-          </div>
-        </AnimatedSection>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* Skills Section */}
-        <AnimatedSection
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Skills & Expertise
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {skills.map((skillGroup) => (
-              <div
-                key={skillGroup.category}
-                className="bg-white rounded-lg shadow-lg p-6"
-              >
-                <h3 className="text-xl font-semibold text-indigo-600 mb-4">
-                  {skillGroup.category}
-                </h3>
-                <ul className="space-y-2">
-                  {skillGroup.items.map((item) => (
-                    <li key={item} className="text-gray-600">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
+      {/* Skills Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-16 bg-gray-50 dark:bg-gray-800/50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeIn}
+            transition={fadeInTransition}
+          >
+            <h2 className="text-3xl font-bold mb-12 text-center">Skills & Expertise</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg"
+                >
+                  <h3 className="font-semibold mb-2">{skill.name}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">{skill.level}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* Experience Section */}
-        <AnimatedSection
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Professional Experience
-          </h2>
-          <div className="space-y-8">
-            {experiences.map((exp) => (
-              <div
-                key={exp.company}
-                className="bg-white rounded-lg shadow-lg p-6"
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      {exp.role}
-                    </h3>
-                    <p className="text-indigo-600">{exp.company}</p>
-                  </div>
-                  <p className="text-gray-500 mt-2 md:mt-0">{exp.period}</p>
-                </div>
-                <p className="text-gray-600">{exp.description}</p>
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
-      </div>
+      {/* Experience Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeIn}
+            transition={fadeInTransition}
+          >
+            <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
+            <div className="space-y-8">
+              {experiences.map((exp, index) => (
+                <motion.div
+                  key={exp.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                  className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg"
+                >
+                  <h3 className="text-xl font-semibold mb-2">{exp.title}</h3>
+                  <p className="text-blue-600 dark:text-blue-400 mb-2">{exp.company}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{exp.period}</p>
+                  <p className="text-gray-600 dark:text-gray-300">{exp.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Personal Section */}
+      <section className="px-4 sm:px-6 lg:px-8 py-16 bg-gray-50 dark:bg-gray-800/50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={fadeIn}
+            transition={fadeInTransition}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h2 className="text-3xl font-bold mb-6">Beyond Design</h2>
+            <p className="text-gray-600 dark:text-gray-300 text-lg mb-8">
+              When I'm not designing, you can find me exploring new hiking trails, 
+              experimenting with new cooking recipes, or diving into a good book. 
+              I'm always seeking opportunities to learn and grow both personally and professionally.
+            </p>
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-colors duration-200">
+              Download CV
+            </button>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 } 

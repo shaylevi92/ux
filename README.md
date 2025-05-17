@@ -1,82 +1,69 @@
-# UX Portfolio
+# Shay Levi - UX Designer Portfolio
 
-## מבנה תמונות נדרש
+A modern, responsive portfolio website built with Next.js, Tailwind CSS, and Framer Motion.
 
-```
-public/
-├── profile.jpg
-└── projects/
-    ├── iplant/
-    │   ├── thumbnail.jpg
-    │   ├── gallery1.jpg
-    │   ├── gallery2.jpg
-    │   └── gallery3.jpg
-    ├── careery/
-    │   ├── thumbnail.jpg
-    │   ├── gallery1.jpg
-    │   ├── gallery2.jpg
-    │   └── gallery3.jpg
-    ├── eye-tracking/
-    │   ├── thumbnail.jpg
-    │   ├── gallery1.jpg
-    │   ├── gallery2.jpg
-    │   └── gallery3.jpg
-    ├── home-manager/
-    │   ├── thumbnail.jpg
-    │   ├── gallery1.jpg
-    │   ├── gallery2.jpg
-    │   └── gallery3.jpg
-    ├── happier-services/
-    │   ├── thumbnail.jpg
-    │   ├── gallery1.jpg
-    │   ├── gallery2.jpg
-    │   └── gallery3.jpg
-    └── space-madness/
-        ├── thumbnail.jpg
-        ├── gallery1.jpg
-        ├── gallery2.jpg
-        └── gallery3.jpg
-```
+## Features
 
-## הנחיות לתמונות:
-- תמונת פרופיל: 400x400px
-- תמונות ממוזערות: 800x600px
-- תמונות גלריה: 1920x1080px
-- פורמט: JPG עם דחיסה אופטימלית
+- Modern and clean design
+- Responsive layout
+- Dark mode support
+- Smooth animations
+- Project case studies
+- Contact form
+- SEO optimized
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) - Animation library
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/portfolio.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── public/          # Static assets
+│   └── projects/    # Project images
+├── src/
+│   ├── app/         # App router pages
+│   ├── components/  # React components
+│   └── styles/      # Global styles
+├── package.json     # Dependencies and scripts
+└── README.md       # Project documentation
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Update the content in the page components under `src/app/`
+2. Modify styles in `src/app/globals.css`
+3. Add your own images to `public/projects/`
+4. Update project data in the components
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The site can be easily deployed to Vercel:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/portfolio)
+
+## License
+
+MIT License - feel free to use this code for your own portfolio!
