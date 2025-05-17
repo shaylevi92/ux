@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 // This would typically come from a CMS or API
 const projects = {
@@ -78,73 +78,25 @@ const projects = {
     ]
   },
   iplant: {
-    title: 'iPlant',
-    subtitle: 'Smart Nursery Plant Dashboard',
-    description: 'Advanced IoT plant monitoring system for efficient plant care. Provides data on soil, sun, temp, and food levels with ease.',
-    challenge: 'Create an intuitive interface that allows users to monitor and care for their plants easily, integrating real-time data from IoT devices.',
-    solution: 'Developed a smart dashboard that displays data visually and clearly, with AI-powered alerts and care recommendations.',
-    outcome: 'The system led to a 40% improvement in plant survival rates and 60% reduction in water usage.',
+    title: 'iPlant Smart Nursery',
+    description: 'Advanced IoT plant monitoring system for efficient plant care',
+    fullDescription: 'An advanced IoT plant monitoring system that makes plant care effortless through intuitive data visualization and smart notifications.',
     image: '/projects/iplant.jpg',
-    gallery: [
-      '/projects/iplant-1.jpg',
-      '/projects/iplant-2.jpg',
-      '/projects/iplant-3.jpg'
-    ],
-    tags: ['Dashboard', 'Data visualization', 'AI Assistant', 'IoT'],
-    duration: '4 months',
-    role: 'Lead UX Designer',
-    deliverables: [
-      'User Research',
-      'UX/UI Design',
-      'Interactive Prototype',
-      'Design System'
-    ]
+    tags: ['Dashboard', 'IoT', 'Data Visualization'],
   },
   careery: {
     title: 'Careery',
-    subtitle: 'Find Your Perfect Career Path',
-    description: 'A mobile application for navigating and comparing between different career paths. Say goodbye to confusion, and hello to clarity.',
-    challenge: 'Many struggle with career decisions due to lack of comprehensive and reliable information. The challenge was to create a platform that helps users make informed decisions.',
-    solution: 'Developed an app that combines professional information, personal experiences, and job market data in an intuitive interface.',
-    outcome: '85% of users reported increased confidence in their career choices.',
+    description: 'Mobile app for finding your perfect career path',
+    fullDescription: 'A mobile application that helps users navigate and compare different career paths, making career decisions more informed and less overwhelming.',
     image: '/projects/careery.jpg',
-    gallery: [
-      '/projects/careery-1.jpg',
-      '/projects/careery-2.jpg',
-      '/projects/careery-3.jpg'
-    ],
-    tags: ['Mobile app', 'Personal project', 'Research', 'Career Development'],
-    duration: '3 months',
-    role: 'UX Designer & Researcher',
-    deliverables: [
-      'User Research Report',
-      'App Design',
-      'Interactive Prototype',
-      'User Testing Results'
-    ]
+    tags: ['Mobile App', 'UX Research', 'Career'],
   },
-  eyetracking: {
+  'eye-tracking': {
     title: 'Eye Tracking Research',
-    subtitle: 'Understanding Purchase Decisions',
-    description: 'How do online shoppers choose their products? Comparing product ratings to the number of feedbacks just before making a purchase.',
-    challenge: 'Understand how users make purchase decisions on e-commerce sites, particularly in relation to ratings and reviews.',
-    solution: 'Conducted in-depth research using eye-tracking technology, analyzing user behavior during purchase decision-making.',
-    outcome: 'Research led to valuable insights that were implemented in product interface redesign, resulting in a 25% increase in conversion rates.',
-    image: '/projects/eyetracking.jpg',
-    gallery: [
-      '/projects/eyetracking-1.jpg',
-      '/projects/eyetracking-2.jpg',
-      '/projects/eyetracking-3.jpg'
-    ],
-    tags: ['User Research', 'E-commerce', 'Decision Making', 'Eye Tracking'],
-    duration: '2 months',
-    role: 'UX Researcher',
-    deliverables: [
-      'Research Report',
-      'Eye Tracking Analysis',
-      'Design Recommendations',
-      'Presentation'
-    ]
+    description: 'Research on purchase decisions using eye tracking',
+    fullDescription: 'An in-depth study on how online shoppers make purchase decisions, analyzing the relationship between product ratings, reviews, and visual attention patterns.',
+    image: '/projects/eye-tracking.jpg',
+    tags: ['Research', 'E-commerce', 'Analytics'],
   },
   homemanager: {
     title: 'Home Manager IoT',
@@ -217,6 +169,12 @@ const projects = {
   }
 };
 
+export function generateStaticParams() {
+  return Object.keys(projects).map((id) => ({
+    id,
+  }));
+}
+
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -231,11 +189,12 @@ const staggerContainer = {
   }
 };
 
-export default function Project({ params }: { params: { id: string } }) {
-  const project = projects[params.id as keyof typeof projects];
+export default function ProjectPage() {
+  const { id } = useParams();
+  const project = projects[id as keyof typeof projects];
 
   if (!project) {
-    notFound();
+    return <div>Project not found</div>;
   }
 
   return (
