@@ -28,7 +28,7 @@ const nextConfig = {
       memoryLimit: 4096
     },
     enableAppDir: true,
-    serverComponentsExternalPackages: ['framer-motion'],
+    serverComponentsExternalPackages: [],
   },
 };
 
