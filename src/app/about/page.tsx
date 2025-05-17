@@ -50,9 +50,9 @@ export default function About() {
 
         {/* Profile Section */}
         <AnimatedSection
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           className="bg-white rounded-lg shadow-lg overflow-hidden mb-16"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-8">
@@ -80,9 +80,9 @@ export default function About() {
 
         {/* Skills Section */}
         <AnimatedSection
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           className="mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -111,9 +111,9 @@ export default function About() {
 
         {/* Experience Section */}
         <AnimatedSection
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Professional Experience
