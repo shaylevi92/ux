@@ -1,55 +1,47 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
-interface ProjectCardProps {
-  project: {
-    title: string;
-    description: string;
-    image: string;
-    tags: string[];
-    link: string;
-  };
-  index: number;
+export interface ProjectCardProps {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ id, title, description, image, tags }: ProjectCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.2 }}
-      className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-    >
-      <Link href={project.link}>
+    <Link href={`/projects/${id}`}>
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+      >
         <div className="relative h-48">
           <Image
-            src={project.image}
-            alt={project.title}
+            src={image}
+            alt={title}
             fill
             className="object-cover"
-            priority={index === 0}
           />
         </div>
         <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            {project.description}
-          </p>
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-gray-600 mb-4 line-clamp-2">{description}</p>
           <div className="flex flex-wrap gap-2">
-            {project.tags.map(tag => (
+            {tags.map((tag) => (
               <span
                 key={tag}
-                className="text-sm bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full"
+                className="px-2 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
               >
                 {tag}
               </span>
             ))}
           </div>
         </div>
-      </Link>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 } 
