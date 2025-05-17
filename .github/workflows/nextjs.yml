@@ -20,6 +20,7 @@ jobs:
     env:
       NEXT_TELEMETRY_DISABLED: 1
       NEXT_SHARP_PATH: /tmp/node_modules/sharp
+      NODE_OPTIONS: "--max_old_space_size=4096"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,6 +31,14 @@ jobs:
           cache: 'npm'
       - name: Setup Pages
         uses: actions/configure-pages@v4
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
       - name: Install dependencies
         run: npm ci
       - name: Build with Next.js

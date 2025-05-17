@@ -8,27 +8,27 @@ import { notFound } from 'next/navigation';
 // This would typically come from a CMS or API
 const projects = {
   ecommerce: {
-    title: 'E-commerce Redesign',
-    client: 'Fashion Retailer',
-    description: 'A complete overhaul of the e-commerce platform focusing on improving conversion rates and user engagement through intuitive navigation and streamlined checkout process.',
-    challenge: 'The existing platform had a high cart abandonment rate and users reported difficulty in finding products. The challenge was to create a more intuitive shopping experience while maintaining the brand\'s premium feel.',
-    solution: 'Through extensive user research and iterative design, we developed a new navigation structure and simplified the checkout process. We also implemented advanced filtering and search capabilities.',
-    outcome: 'The redesign resulted in a 40% reduction in cart abandonment and a 25% increase in average order value. User satisfaction scores improved by 60%.',
-    image: '/projects/ecommerce.jpg',
+    title: "E-commerce Redesign",
+    client: "Fashion Retailer",
+    description: "A complete overhaul of the e-commerce platform focusing on improving conversion rates and user engagement through intuitive navigation and streamlined checkout process.",
+    challenge: "The existing platform had a high cart abandonment rate and users reported difficulty in finding products. The challenge was to create a more intuitive shopping experience while maintaining the brand's premium feel.",
+    solution: "Through extensive user research and iterative design, we developed a new navigation structure and simplified the checkout process. We also implemented advanced filtering and search capabilities.",
+    outcome: "The redesign resulted in a 40% reduction in cart abandonment and a 25% increase in average order value. User satisfaction scores improved by 60%.",
+    image: "/projects/ecommerce.jpg",
     gallery: [
-      '/projects/ecommerce-1.jpg',
-      '/projects/ecommerce-2.jpg',
-      '/projects/ecommerce-3.jpg'
+      "/projects/ecommerce-1.jpg",
+      "/projects/ecommerce-2.jpg",
+      "/projects/ecommerce-3.jpg"
     ],
-    tags: ['UX Design', 'UI Design', 'User Research', 'Prototyping'],
-    duration: '3 months',
-    role: 'Lead UX Designer',
+    tags: ["UX Design", "UI Design", "User Research", "Prototyping"],
+    duration: "3 months",
+    role: "Lead UX Designer",
     deliverables: [
-      'User Research Report',
-      'Wireframes',
-      'Interactive Prototype',
-      'Design System',
-      'User Testing Results'
+      "User Research Report",
+      "Wireframes",
+      "Interactive Prototype",
+      "Design System",
+      "User Testing Results"
     ]
   },
   healthcare: {
