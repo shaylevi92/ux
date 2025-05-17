@@ -1,34 +1,40 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion, AnimatePresence } from "framer-motion";
+import PageWrapper from "@/components/PageWrapper";
+import ThemeProvider from "@/components/ThemeProvider";
+import Container from "@/components/layout/Container";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
 
-export const metadata: Metadata = {
-  title: "UX Designer Portfolio",
-  description: "Professional UX Designer Portfolio showcasing innovative design solutions",
-};
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+});
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="min-h-screen flex flex-col">
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <body className="min-h-screen flex flex-col bg-background text-primary antialiased">
+        <ThemeProvider>
           <Navbar />
-          <main className="flex-grow">
-            <AnimatePresence mode="wait">
-              {children}
-            </AnimatePresence>
+          <main className="flex-grow pt-24">
+            <Container>
+              <PageWrapper>
+                {children}
+              </PageWrapper>
+            </Container>
           </main>
           <Footer />
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );

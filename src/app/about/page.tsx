@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { AnimatedSection, fadeInUp } from '@/components/AnimatedSection';
 
 const skills = [
   { category: 'Design', items: ['User Interface Design', 'User Experience Design', 'Interaction Design', 'Wireframing', 'Prototyping'] },
@@ -29,18 +29,12 @@ const experiences = [
   }
 ];
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
-
 export default function About() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <motion.div
+        <AnimatedSection
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -52,10 +46,10 @@ export default function About() {
           <p className="mt-4 text-xl text-gray-500 max-w-3xl mx-auto">
             Passionate UX designer with 5+ years of experience creating intuitive and impactful digital experiences
           </p>
-        </motion.div>
+        </AnimatedSection>
 
         {/* Profile Section */}
-        <motion.div
+        <AnimatedSection
           variants={fadeInUp}
           initial="initial"
           animate="animate"
@@ -82,10 +76,10 @@ export default function About() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </AnimatedSection>
 
         {/* Skills Section */}
-        <motion.div
+        <AnimatedSection
           variants={fadeInUp}
           initial="initial"
           animate="animate"
@@ -113,10 +107,10 @@ export default function About() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </AnimatedSection>
 
         {/* Experience Section */}
-        <motion.div
+        <AnimatedSection
           variants={fadeInUp}
           initial="initial"
           animate="animate"
@@ -143,7 +137,7 @@ export default function About() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </AnimatedSection>
       </div>
     </div>
   );

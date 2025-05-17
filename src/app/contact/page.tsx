@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion';
+'use client';
+
+import { AnimatedSection, fadeInUp } from '@/components/AnimatedSection';
 import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline';
 
 const contactInfo = [
@@ -19,17 +21,11 @@ const contactInfo = [
   },
 ];
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
-
 export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <AnimatedSection
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -41,11 +37,11 @@ export default function Contact() {
           <p className="mt-4 text-xl text-gray-500 max-w-3xl mx-auto">
             Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing together.
           </p>
-        </motion.div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <motion.div
+          <AnimatedSection
             variants={fadeInUp}
             initial="initial"
             animate="animate"
@@ -121,10 +117,10 @@ export default function Contact() {
                 </button>
               </div>
             </form>
-          </motion.div>
+          </AnimatedSection>
 
           {/* Contact Information */}
-          <motion.div
+          <AnimatedSection
             variants={fadeInUp}
             initial="initial"
             animate="animate"
@@ -170,7 +166,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </div>
     </div>

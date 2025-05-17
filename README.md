@@ -1,3 +1,49 @@
+# UX Portfolio
+
+## מבנה תמונות נדרש
+
+```
+public/
+├── profile.jpg
+└── projects/
+    ├── iplant/
+    │   ├── thumbnail.jpg
+    │   ├── gallery1.jpg
+    │   ├── gallery2.jpg
+    │   └── gallery3.jpg
+    ├── careery/
+    │   ├── thumbnail.jpg
+    │   ├── gallery1.jpg
+    │   ├── gallery2.jpg
+    │   └── gallery3.jpg
+    ├── eye-tracking/
+    │   ├── thumbnail.jpg
+    │   ├── gallery1.jpg
+    │   ├── gallery2.jpg
+    │   └── gallery3.jpg
+    ├── home-manager/
+    │   ├── thumbnail.jpg
+    │   ├── gallery1.jpg
+    │   ├── gallery2.jpg
+    │   └── gallery3.jpg
+    ├── happier-services/
+    │   ├── thumbnail.jpg
+    │   ├── gallery1.jpg
+    │   ├── gallery2.jpg
+    │   └── gallery3.jpg
+    └── space-madness/
+        ├── thumbnail.jpg
+        ├── gallery1.jpg
+        ├── gallery2.jpg
+        └── gallery3.jpg
+```
+
+## הנחיות לתמונות:
+- תמונת פרופיל: 400x400px
+- תמונות ממוזערות: 800x600px
+- תמונות גלריה: 1920x1080px
+- פורמט: JPG עם דחיסה אופטימלית
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

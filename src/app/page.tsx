@@ -1,139 +1,155 @@
-import { motion } from 'framer-motion';
+'use client';
+
+import { AnimatedSection } from '@/components/AnimatedSection';
+import { Grid, GridItem } from '@/components/layout/Grid';
+import { Heading, Body, Caption } from '@/components/typography/Text';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
-
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1
-    }
+const projects = [
+  {
+    title: 'iPlant',
+    description: 'Advanced IoT plant monitoring system for efficient plant care. Provides data on soil, sun, temp, and food levels with ease.',
+    image: '/projects/iplant.jpg',
+    tags: ['Dashboard', 'Data visualization', 'AI Assistant'],
+    link: '/projects/iplant'
+  },
+  {
+    title: 'Careery',
+    description: 'A mobile application for navigating and comparing between different career paths. Say goodbye to confusion, and hello to clarity.',
+    image: '/projects/careery.jpg',
+    tags: ['Mobile app', 'Personal project', 'Research'],
+    link: '/projects/careery'
+  },
+  {
+    title: 'Eye Tracking Research',
+    description: 'How do online shoppers choose their products? Comparing product ratings to the number of feedbacks just before making a purchase.',
+    image: '/projects/eyetracking.jpg',
+    tags: ['User Research', 'E-commerce', 'Decision Making'],
+    link: '/projects/eyetracking'
   }
-};
+];
 
 export default function Home() {
-  const featuredProjects = [
-    {
-      title: 'E-commerce Redesign',
-      description: 'Complete UX overhaul of an e-commerce platform',
-      image: '/projects/ecommerce.jpg',
-      link: '/projects/ecommerce'
-    },
-    {
-      title: 'Healthcare App',
-      description: 'Patient-centered healthcare management application',
-      image: '/projects/healthcare.jpg',
-      link: '/projects/healthcare'
-    },
-    {
-      title: 'Financial Dashboard',
-      description: 'Complex data visualization made simple',
-      image: '/projects/finance.jpg',
-      link: '/projects/finance'
-    }
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <motion.section
-        initial="initial"
-        animate="animate"
-        className="relative bg-white overflow-hidden"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <motion.div variants={fadeInUp} className="sm:text-center lg:text-left">
-                <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                  <span className="block">Creating meaningful</span>
-                  <span className="block text-indigo-600">digital experiences</span>
-                </h1>
-                <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  UX Designer focused on creating intuitive and engaging digital solutions that solve real user problems.
-                </p>
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                  <div className="rounded-md shadow">
-                    <Link
-                      href="/projects"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-                    >
-                      View Projects
-                    </Link>
-                  </div>
-                  <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <Link
-                      href="/contact"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
-                    >
-                      Contact Me
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            </main>
-          </div>
+      <section className="relative isolate overflow-hidden">
+        <div className="container-custom section">
+          <AnimatedSection
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center space-y-8 max-w-3xl mx-auto"
+          >
+            <div className="relative w-32 h-32 mx-auto mb-8">
+              <Image
+                src="/profile.jpg"
+                alt="Shay Levi"
+                fill
+                className="rounded-full object-cover"
+                priority
+              />
+            </div>
+            <Heading level={1}>
+              Hi, I'm Shay
+            </Heading>
+            <Heading level={2} weight="semibold" className="text-secondary">
+              UX Designer
+            </Heading>
+            <Body size="xl" className="text-secondary max-w-2xl mx-auto">
+              I design digital products that combine user-centered approach with solid product strategy.
+            </Body>
+            <div className="flex items-center justify-center gap-6 mt-8">
+              <Link href="/projects" className="btn-primary">
+                View Projects
+              </Link>
+              <Link href="/cv" className="btn-secondary">
+                Download CV
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Featured Projects */}
-      <motion.section
-        variants={stagger}
-        initial="initial"
-        animate="animate"
-        className="py-12 bg-gray-50"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              Featured Projects
-            </h2>
-            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+      {/* Projects Section */}
+      <section className="bg-gray-50 dark:bg-gray-900">
+        <div className="container-custom section">
+          <AnimatedSection
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <Heading level={2} className="mb-4">
+              Selected Projects
+            </Heading>
+            <Body size="xl" className="text-secondary max-w-2xl mx-auto">
               A selection of my recent work in UX design and research
-            </p>
-          </div>
+            </Body>
+          </AnimatedSection>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                variants={fadeInUp}
-                className="bg-white rounded-lg shadow-lg overflow-hidden"
-              >
-                <div className="relative h-48">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-medium text-gray-900">
-                    {project.title}
-                  </h3>
-                  <p className="mt-2 text-base text-gray-500">
-                    {project.description}
-                  </p>
-                  <div className="mt-4">
-                    <Link
-                      href={project.link}
-                      className="text-indigo-600 hover:text-indigo-500"
-                    >
-                      View Case Study →
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
+          <Grid cols={3} gap="2rem" animate>
+            {projects.map((project, index) => (
+              <GridItem key={project.title}>
+                <Link href={project.link} className="block group">
+                  <article className="card overflow-hidden h-full">
+                    <div className="relative h-64">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-10 group-hover:bg-opacity-20 transition-all duration-300" />
+                    </div>
+                    <div className="p-8">
+                      <Heading level={3} className="mb-3">
+                        {project.title}
+                      </Heading>
+                      <Body className="mb-6 line-clamp-3">
+                        {project.description}
+                      </Body>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map(tag => (
+                          <Caption
+                            key={tag}
+                            className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-secondary rounded-full"
+                          >
+                            {tag}
+                          </Caption>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              </GridItem>
             ))}
-          </div>
+          </Grid>
         </div>
-      </motion.section>
+      </section>
+
+      {/* Contact CTA */}
+      <section className="bg-primary text-background">
+        <div className="container-custom section text-center">
+          <AnimatedSection
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto"
+          >
+            <Heading level={2} className="mb-4">
+              Have a project in mind?
+            </Heading>
+            <Body size="xl" className="mb-8 text-background/80">
+              Let's talk about your next project and make it a reality
+            </Body>
+            <Link href="/contact" className="btn-primary bg-background text-primary hover:bg-gray-100">
+              Get in Touch
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
     </div>
   );
 }
